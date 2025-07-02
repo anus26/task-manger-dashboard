@@ -1,9 +1,24 @@
 import React from 'react'
+import TaskForm from './components/TaskForm'
+import TaskList from './components/TaskList'
+import TaskItem from './components/TaskItem'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
     <>
-    <h1 className='font-semibold text-xl bg-black text-white '>Task Manager Dashboard</h1>
+    <BrowserRouter>
+    <Routes>
+    <Route  path='TaskForm' excat element={<TaskForm onAddTask={handleAddTask}
+      onUpdateTask={handleUpdateTask}
+  taskToEdit={taskBeingEdited}
+  />}/>
+     <Route  path='taskitem' excat element={<TaskItem/>}/>
+      <Route  path='tasklist' excat element={<TaskList/>}/>
+
+    </Routes>
+    </BrowserRouter>
+    {/* <TaskForm/> */}
     </>
   )
 }
