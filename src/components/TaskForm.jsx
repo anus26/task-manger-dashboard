@@ -20,7 +20,8 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const task = {
+    if (!title.trim()) return
+    const taskData = {
       id: taskToEdit ? taskToEdit.id : Date.now(),
       title,
       description,
