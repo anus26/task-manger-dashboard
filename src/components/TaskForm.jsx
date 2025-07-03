@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useStore } from 'zustand';
+import useTaskStore from '../taskstore';
 
-const TaskForm = ({ onAddTask, onUpdateTask, taskToEdit }) => {
+const TaskForm = () => {
+  const {addTask,updateTask,taskToEdit}=useTaskStore()
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -17,18 +20,21 @@ const TaskForm = ({ onAddTask, onUpdateTask, taskToEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const taskData = {
+    const task = {
       id: taskToEdit ? taskToEdit.id : Date.now(),
       title,
       description,
       completed: taskToEdit ? taskToEdit.completed : false,
     };
 
+   
     if (taskToEdit) {
-      onUpdateTask(taskData);
+      updateTask(taskData);
     } else {
-      onAddTask(taskData);
+      addTask(taskData); // ✅ Important
     }
+
+
 
     // Reset fields after submit
     setTitle('');
@@ -39,7 +45,7 @@ const TaskForm = ({ onAddTask, onUpdateTask, taskToEdit }) => {
     <section>
       <div className='flex items-center justify-center flex-col gap-5 min-h-screen w-full'>
         <h1 className='font-bold text-xl'>
-          {taskToEdit ? '✏️ Edit Task' : '📝 Add New Task'}
+        Task Form
         </h1>
 
         <form

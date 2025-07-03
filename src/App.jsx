@@ -9,9 +9,8 @@ const App = () => {
     <>
     <BrowserRouter>
     <Routes>
-    <Route  path='TaskForm' excat element={<TaskForm onAddTask={handleAddTask}
-      onUpdateTask={handleUpdateTask}
-  taskToEdit={taskBeingEdited}
+    <Route  path='TaskForm' excat element={<TaskForm 
+
   />}/>
      <Route  path='taskitem' excat element={<TaskItem/>}/>
       <Route  path='tasklist' excat element={<TaskList/>}/>
