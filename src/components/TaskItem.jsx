@@ -23,12 +23,27 @@ const handleFilter=tasks.filter((task)=>{
     <div className='container'>
      <h1 className='font-bold text-center text-2xl m-6 flex gap-4'>Task Item  <img src="./images/clipboard.png" alt="clipboard"  className='w-10'/> </h1>
 
-     <div className='flex items-center justify-center gap-5'>
- <button className='border '  onClick={()=>setFilter('all')}>
-        All</button>
-      <button onClick={()=>setFilter('completed')}>Completed</button>
-      <button onClick={()=>setFilter('pending')}>Pending</button>
-     </div>
+  <div className='flex items-center justify-center gap-5 mb-4'>
+  <button
+    className={`border px-4 py-1 rounded ${filter === 'all' ? 'bg-green-400 text-white' : 'bg-white'}`}
+    onClick={() => setFilter('all')}
+  >
+    All
+  </button>
+  <button
+    className={`border px-4 py-1 rounded ${filter === 'completed' ? 'bg-green-400 text-white' : 'bg-white'}`}
+    onClick={() => setFilter('completed')}
+  >
+    Completed
+  </button>
+  <button
+    className={`border px-4 py-1 rounded ${filter === 'pending' ? 'bg-green-400 text-white' : 'bg-white'}`}
+    onClick={() => setFilter('pending')}
+  >
+    Pending
+  </button>
+</div>
+
      <div className='task gap-3'>
       {handleFilter.length === 0 ? (
               <p className='text-gray-500 flex items-center justify-center'>No tasks found.</p>

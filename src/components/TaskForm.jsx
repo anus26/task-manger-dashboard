@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStore } from 'zustand';
 import useTaskStore from '../taskstore';
 import toast from 'react-hot-toast';
-
+import { motion } from "motion/react"
 const TaskForm = () => {
   const {addTask,updateTask,taskToEdit,setTaskToEdit}=useTaskStore()
   const [title, setTitle] = useState('');
@@ -50,9 +50,9 @@ const TaskForm = () => {
   return (
     <section>
       <div className='flex items-center justify-center flex-col gap-5 min-h-screen w-full '>
-        <h1 className='font-bold text-xl flex gap-4'>
+        <motion.h1 animate={{rotate:360}} className='font-bold text-xl flex gap-4'>
         Task Form <img src="./images/done.png" alt="done image"  className='w-10'/>
-        </h1>
+        </motion.h1>
 
         <form
           onSubmit={handleSubmit}

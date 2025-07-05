@@ -4,6 +4,10 @@ import TaskList from './components/TaskList'
 import TaskItem from './components/TaskItem'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+import Header from './components/Header'
+
+
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -11,15 +15,17 @@ const App = () => {
 
    
     <BrowserRouter>
+    <Header/>
     <Routes>
+     
+      <Route  path='/' excat element={<TaskList/>}/>
     <Route  path='TaskForm' excat element={<TaskForm />}/>
      <Route  path='taskitem' excat element={<TaskItem/>}/>
-      <Route  path='tasklist' excat element={<TaskList/>}/>
 
     </Routes>
+    <Footer/>
     </BrowserRouter>
     <Toaster/> 
-    {/* <TaskForm/> */}
     </>
     
   )
